@@ -4,22 +4,6 @@ public class Lambdas {
 
     public static void main(String[] args) {
 
-        new Thread(new Run()).start();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("Started 2");
-            }
-        }).start();
-
-        new Thread(() -> System.out.println("Started 3")).start();
-
-        new Thread(() -> {
-            System.out.println("Started 4");
-            System.out.println("Started 5");
-        }).start();
-
         Employee first = new Employee("aa", 12);
         Employee second = new Employee("bb", 32);
         Employee third = new Employee("cc", 43);
@@ -38,11 +22,20 @@ public class Lambdas {
         });
 
         employeeList.forEach(e -> System.out.println(e.getName() + " " + e.getAge()));
+        ///
 
         //NEW WAY
         Collections.sort(employeeList, (e1, e2) -> e1.getName().compareTo(e2.getName()));
 
         employeeList.forEach(e -> System.out.println(e.getName() + " " + e.getAge()));
+        ///
+
+        String someString = doSomething((s1,s2) -> s1.concat(s2),"22","33");
+        System.out.println(someString);
+    }
+
+    public static String doSomething(SomeInterface sf, String s1, String s2) {
+        return sf.returnSomething(s1, s2);
     }
 }
 
@@ -70,12 +63,5 @@ class Employee {
 
     public void setAge(int age) {
         this.age = age;
-    }
-}
-
-class Run implements Runnable {
-    @Override
-    public void run() {
-        System.out.println("Started 1");
     }
 }
