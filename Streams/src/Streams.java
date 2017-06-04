@@ -49,10 +49,10 @@ public class Streams {
 
         //Flat map example
 
-        Employee first = new Employee("First",22);
-        Employee second = new Employee("Second",33);
-        Employee third = new Employee("Third",11);
-        Employee fourth = new Employee("Fourth",56);
+        Employee first = new Employee("First", 22);
+        Employee second = new Employee("Second", 33);
+        Employee third = new Employee("Third", 11);
+        Employee fourth = new Employee("Fourth", 56);
 
         Department hr = new Department("HR");
         hr.addEmplyee(first);
@@ -73,6 +73,18 @@ public class Streams {
 //                .collect(Collectors.toList());
                 .collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
         allEmployees.forEach(System.out::println);
+
+        //Using reduce method
+        System.out.println("\nPrinting the youngest employee");
+        departments
+                .stream()
+                .flatMap(s -> s.getEmployees().stream())
+                .reduce((e1, e2) -> {
+                    if (e1.getAge() < e2.getAge()) return e1;
+                    else return e2;
+                })
+                .ifPresent(System.out::println);
+
 
     }
 }
