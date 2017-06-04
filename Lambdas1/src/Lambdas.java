@@ -30,13 +30,26 @@ public class Lambdas {
         employeeList.forEach(e -> System.out.println(e.getName() + " " + e.getAge()));
         ///
 
-        String someString = doSomething((s1,s2) -> s1.concat(s2),"22","33");
+        employeeList.forEach(e -> {
+            System.out.println(e.getName());
+            new Thread(() -> System.out.println(e.getAge())).start();
+        });
+
+
+        String someString = doSomething((s1, s2) -> {
+            String result = s1.concat(s2);
+            return result;
+        }, "22", "33");
+
         System.out.println(someString);
+
+        System.out.println(new Lambdas2().someMethod());
     }
 
     public static String doSomething(SomeInterface sf, String s1, String s2) {
         return sf.returnSomething(s1, s2);
     }
+
 }
 
 class Employee {
