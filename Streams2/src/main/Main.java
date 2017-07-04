@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
 //
 //        BinaryOperator<Integer> add = (number1, number2) -> number1 + number2;
-//        BinaryOperator<Integer> substract = (number1, number2) -> number1 - number2;
+//        BinaryOperator<Integer> subtract = (number1, number2) -> number1 - number2;
 //        BinaryOperator<Integer> multiply = (number1, number2) -> number1 * number2;
 //        BinaryOperator<Integer> divide = (number1, number2) -> number1 / number2;
 //
@@ -58,7 +58,7 @@ public class Main {
         developers.stream()
                 .mapToInt(Developer::getAge)
                 .average()
-                .ifPresent(output -> System.out.println("AVARAGE: " + Math.round(output)));
+                .ifPresent(output -> System.out.println("AVERAGE: " + Math.round(output)));
 
         printSeparator();
         //Showing oldest dev
