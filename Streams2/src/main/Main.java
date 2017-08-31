@@ -84,9 +84,9 @@ public class Main {
                 .stream()
                 .collect(Collectors.groupingBy(Developer::getAge));
 
-        for(Map.Entry entry : groupByAge.entrySet()){
+        for (Map.Entry entry : groupByAge.entrySet()) {
             System.out.println(entry.getKey() + ":");
-            for (Developer dev : (List<Developer>) entry.getValue()){
+            for (Developer dev : (List<Developer>) entry.getValue()) {
                 System.out.println("-> " + dev);
             }
         }
@@ -99,13 +99,13 @@ public class Main {
         Predicate<Integer> sumOfDigitsEqualsTo7 = integer -> {
             String intAsString = integer.toString();
             Integer value = 0;
-            for(String s : intAsString.split("")){
+            for (String s : intAsString.split("")) {
                 value += Integer.parseInt(s);
             }
             return value == 7;
         };
 
-        IntStream.range(1,101)
+        IntStream.range(1, 101)
                 .boxed()
                 .filter(sumOfDigitsEqualsTo7)
                 .forEach(System.out::println);
@@ -113,7 +113,7 @@ public class Main {
         printSeparator();
         //second way
         Predicate<Integer> sumOfDigitsEqualsTo7ExternalImplementation = new MyPredicate();
-        IntStream.range(1,40)
+        IntStream.range(1, 40)
                 .boxed()
                 .filter(sumOfDigitsEqualsTo7ExternalImplementation)
                 .forEach(System.out::println);

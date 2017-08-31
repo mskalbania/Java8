@@ -4,6 +4,7 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 
+
 public class PeopleAggregation {
 
     public OptionalDouble getAverageAge(List<Person> inputList) {

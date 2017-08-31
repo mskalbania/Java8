@@ -10,7 +10,6 @@ public class Main {
         List<Person> personList = PeopleLoader.loadPeopleFromFile("/home/mateusz/Downloads/people.csv");
         PeopleAggregation aggregator = new PeopleAggregation();
 
-
         System.out.println("AVERAGE - " + Math.round(aggregator.getAverageAge(personList).getAsDouble()));
         System.out.println("TOTAL MEN - " + aggregator.getTotalMen(personList));
         System.out.println("TOTAL WOMEN - " + aggregator.getTotalWomen(personList));

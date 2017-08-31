@@ -1,10 +1,7 @@
-import com.sun.xml.internal.ws.util.StringUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -20,7 +17,6 @@ public class NameMatcher {
 
         return inputList.stream()
                 .allMatch(name -> name.length() == length);
-
     }
 
     public boolean areAllNamesHaveAtLeastOneVowel(List<String> inputList) {
